@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_employee_form_salary_certificate" model="ir.ui.view">
+        <field name="name">hr.employee.form.salary.certificate</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_print_employee_departure" type="object" class="oe_stat_button" icon="fa-address-book" invisible="active == True">
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">Employee</span>
+                        <span class="o_stat_text">Departure</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+    <record id="hr_employee_form_employee_accrued" model="ir.ui.view">
+        <field name="name">hr.employee.form.employee.accrued</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='registration_number']" position="after">
+                <field name="employee_accrued" string="Employee Accrued" readonly="1"/>
+                <field name="account_accrued_id" string="Account Accrued" placeholder=""/>
+            </xpath>
+        </field>
+    </record>
+
+        <record id="hr_employee_form_contract_number" model="ir.ui.view">
+        <field name="name">hr.employee.form.contract.number</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='wage_type']" position="before">
+                <field name="contract_number" string="Contract Number"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
