@@ -23,7 +23,7 @@
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">sijil_hr_employee_departure.report_departure_ams</field>
         <field name="report_file">sijil_hr_employee_departure.report_departure_ams</field>
-        <field name="print_report_name">'Departure - %s' % (object.name)</field>
+        <field name="print_report_name">'............................................'</field>
         <field name="paperformat_id" ref="sijil_hr_employee_departure.paperformat_Departure_Custom"/>
     </record>
 
@@ -229,8 +229,10 @@
                                 <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" class="company-logo" alt="Company Logo"/>
                             </td>
                             <td style="text-align: left; vertical-align: middle; color: #64748b; font-size: 13px;">
-                                <div><span t-field="o.company_id.name"/></div>
-                                <div>التاريخ:
+                                <div>
+                                    <span t-field="o.company_id.name"/>
+                                </div>
+                                <div>.......................:
                                     <strong t-if="departure_date" t-out="departure_date.strftime('%d/%m/%Y')"/>
                                     <strong t-else="" t-out="time.strftime('%d/%m/%Y')"/>
                                 </div>
@@ -238,30 +240,42 @@
                         </tr>
                     </table>
 
-                    <div class="doc-main-title">اتفاق إنهاء علاقة عمل ومخالصة نهائية</div>
+                    <div class="doc-main-title">..............................................................</div>
 
                     <!-- Grid Info Table -->
                     <table class="info-grid-table">
                         <tr>
-                            <td class="lbl">الطرف الأول:</td>
+                            <td class="lbl">.......................:</td>
                             <td class="val" colspan="3">
-                                <strong>شركة <span t-field="o.company_id.name" style="unicode-bidi: bidi-override; direction: ltr;"/></strong>
+                                <strong>
+                                    <span t-field="o.company_id.name" style="unicode-bidi: bidi-override; direction: ltr;"/>
+                                </strong>
                             </td>
                         </tr>
                         <tr>
-                            <td class="lbl">الطرف الثاني (الموظف):</td>
-                            <td class="val"><strong><span t-field="o.name"/></strong></td>
-                            <td class="lbl">الرقم الوظيفي:</td>
-                            <td class="val"><span t-out="employee_number"/></td>
+                            <td class="lbl">.......................:</td>
+                            <td class="val">
+                                <strong>
+                                    <span t-field="o.name"/>
+                                </strong>
+                            </td>
+                            <td class="lbl">.......................:</td>
+                            <td class="val">
+                                <span t-out="employee_number"/>
+                            </td>
                         </tr>
                         <tr>
-                            <td class="lbl">رقم الهوية:</td>
-                            <td class="val"><span t-out="o.identification_id or ''"/></td>
-                            <td class="lbl">رقم العقد:</td>
-                            <td class="val"><span t-out="o.contract_number or ''"/></td>
+                            <td class="lbl">.......................:</td>
+                            <td class="val">
+                                <span t-out="o.identification_id or ''"/>
+                            </td>
+                            <td class="lbl">.......................:</td>
+                            <td class="val">
+                                <span t-out="o.contract_number or ''"/>
+                            </td>
                         </tr>
                         <tr>
-                            <td class="lbl">سبب إنهاء العقد:</td>
+                            <td class="lbl">.......................:</td>
                             <td class="val-full" colspan="3">
                                 <span t-if="departure_reason_record" t-field="departure_reason_record.name"/>
                                 <span t-elif="'departure_reason' in o._fields and o['departure_reason']" t-out="o['departure_reason']"/>
@@ -271,48 +285,56 @@
 
                     <!-- Section 1 -->
                     <div class="contract-section">
-                        <div class="section-bar">أولاً: إنهاء علاقة العمل</div>
+                        <div class="section-bar">..............................................................</div>
                         <p>
-                            تقرر إنهاء علاقة العمل بين الطرفين استنادًا إلى أحكام نظام العمل السعودي وعقد العمل المبرم بين الطرفين،
-                            وبناءً على سبب الإنهاء الموضح أعلاه، ويُعد يوم
-                            <strong><span t-if="departure_date" t-out="('الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت', 'الأحد')[departure_date.weekday()]"/></strong>
-                            الموافق
-                            <strong><span t-if="departure_date" t-out="departure_date.strftime('%d/%m/%Y')"/></strong>
-                            هو آخر يوم عمل للموظف لدى الشركة.
+                            ..............................................................
+                            ..............................................................
+                            ..............................................................
+                            <strong>
+                                <span t-if="departure_date" t-out="('الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت', 'الأحد')[departure_date.weekday()]"/>
+                            </strong>
+                            .......................
+                            <strong>
+                                <span t-if="departure_date" t-out="departure_date.strftime('%d/%m/%Y')"/>
+                            </strong>
+                            ..............................................................
                         </p>
-                        <p>ويُقر الطرفان بأن هذا الإنهاء تم وفقًا للأحكام النظامية ذات العلاقة.</p>
+                        <p>..............................................................</p>
                     </div>
 
                     <!-- Section 2 -->
                     <div class="contract-section">
-                        <div class="section-bar">ثانيًا: تصفية المستحقات المالية</div>
-                        <p>يقر الطرفان بأنه تم تصفية جميع المستحقات المالية النظامية للموظف حتى تاريخ انتهاء علاقة العمل، وتشمل:</p>
+                        <div class="section-bar">..............................................................</div>
+                        <p>..............................................................</p>
                         <ul class="benefits-list">
-                            <li>الرواتب المستحقة حتى آخر يوم عمل</li>
-                            <li>بدل الإجازات المستحقة غير المستخدمة (إن وجدت)</li>
-                            <li>أي مستحقات مالية نظامية أخرى مستحقة حتى تاريخ الإنهاء</li>
+                            <li>..............................................................</li>
+                            <li>..............................................................</li>
+                            <li>..............................................................</li>
                         </ul>
 
-                        <p>وقد بلغ إجمالي المستحقات المالية المستحقة للموظف مبلغًا وقدره:</p>
+                        <p>..............................................................</p>
 
                         <!-- Highlighted Amount Box -->
                         <div class="amount-box">
                             <p class="amount-line">
-                                <strong>رقمًا:</strong>
+                                <strong>.......................:</strong>
                                 <span t-field="o.employee_accrued" t-options='{"widget": "float", "precision": 2}'/>
-                                ريال سعودي
+                                .......................
                             </p>
                             <p class="amount-line">
-                                <strong>كتابةً:</strong>
+                                <strong>.......................:</strong>
                                 <span t-out="o.company_id.currency_id.with_context(lang='ar_001').amount_to_text(accrued_amount)"/>
-                                لا غير
+                                .......................
                             </p>
                         </div>
 
                         <p style="margin-top: 10px;">
-                            وقد تم تحويل مبلغ المستحقات ( ان وجدت ) إلى الحساب البنكي الخاص بالموظف رقم
-                            ( <strong><span t-out="bank_account.acc_number if bank_account else ''"/></strong> )
-                            والمسجل لدى الشركة، ويقر الطرف الثاني باستلامه كاملًا دون أي نقص
+                            ..............................................................
+                            ..............................................................
+                            (                            <strong>
+                                <span t-out="bank_account.acc_number if bank_account else ''"/>
+                            </strong> )
+                            ..............................................................
                         </p>
                     </div>
                 </div>
@@ -332,22 +354,23 @@
 
                     <!-- Section 3 -->
                     <div class="contract-section">
-                        <div class="section-bar">ثالثًا: الإقرار والمخالصة</div>
+                        <div class="section-bar">..............................................................</div>
                         <p>
-                            يقر الطرف الثاني بأنه استلم كامل مستحقاته المالية والنظامية المترتبة على علاقة العمل حتى تاريخ انتهائها،
-                            وأنه لا توجد له أي مطالبات مالية أو تعاقدية ناشئة عن فترة عمله لدى الشركة حتى تاريخ الإنهاء،
-                            ويُعد هذا الإقرار مخالصة نهائية وإبراءً لذمة الشركة في حدود الحقوق التي تمت تسويتها بموجب هذا الاتفاق،
-                            وذلك دون الإخلال بأي حقوق لا يجوز التنازل عنها نظامًا.
+                            ..............................................................
+                            ..............................................................
+                            ..............................................................
+                            ..............................................................
+                            ..............................................................
                         </p>
                     </div>
 
                     <!-- Section 4 -->
                     <div class="contract-section">
-                        <div class="section-bar">رابعًا: أحكام عامة</div>
+                        <div class="section-bar">..............................................................</div>
                         <ul class="general-list">
-                            <li>يقر الطرفان بأن هذا الاتفاق قد تم بكامل إرادتهما ودون إكراه، وبعد الاطلاع على مضمونه وفهم جميع أحكامه، ويُعد ملزمًا للطرفين من تاريخ توقيعه.</li>
-                            <li>لا يخل هذا الاتفاق بأي حقوق نظامية لا يجوز التنازل عنها بموجب نظام العمل.</li>
-                            <li>حرر هذا الاتفاق من نسختين أصليتين، استلم كل طرف نسخة للعمل بموجبها.</li>
+                            <li>..............................................................</li>
+                            <li>..............................................................</li>
+                            <li>..............................................................</li>
                         </ul>
                     </div>
 
@@ -357,26 +380,40 @@
                             <tr>
                                 <!-- الشركة -->
                                 <td class="signature-cell">
-                                    <div class="signature-title">توقيع الطرف الأول (الشركة)</div>
+                                    <div class="signature-title">..............................................................</div>
                                     <div class="signature-content">
-                                        <div><strong>الاسم:</strong> <span t-out="company_signatory_name"/></div>
-                                        <div><strong>الصفة:</strong> <span t-out="company_signatory_title"/></div>
-                                        <div style="margin-top: 15px;"><strong>التوقيع والختم:</strong></div>
+                                        <div>
+                                            <strong>.......................:</strong>
+                                            <span t-out="company_signatory_name"/>
+                                        </div>
+                                        <div>
+                                            <strong>.......................:</strong>
+                                            <span t-out="company_signatory_title"/>
+                                        </div>
+                                        <div style="margin-top: 15px;">
+                                            <strong>.......................:</strong>
+                                        </div>
                                         <div class="dots-line" style="margin-top: 25px;">............................................................</div>
                                     </div>
                                 </td>
 
                                 <!-- الموظف -->
                                 <td class="signature-cell">
-                                    <div class="signature-title">توقيع الطرف الثاني (الموظف/ هـ)</div>
+                                    <div class="signature-title">..............................................................</div>
                                     <div class="signature-content">
-                                        <p class="acknowledgement">أقر باستلامي كامل مستحقاتي النظامية وموافقتي على ما ورد في هذا الاتفاق.</p>
-                                        <div><strong>الاسم:</strong> <span t-field="o.name"/></div>
-                                        <div><strong>التاريخ:</strong>
+                                        <p class="acknowledgement">..............................................................</p>
+                                        <div>
+                                            <strong>.......................:</strong>
+                                            <span t-field="o.name"/>
+                                        </div>
+                                        <div>
+                                            <strong>.......................:</strong>
                                             <span t-if="departure_date" t-out="departure_date.strftime('%d/%m/%Y')"/>
                                             <span t-else="" t-out="time.strftime('%d/%m/%Y')"/>
                                         </div>
-                                        <div style="margin-top: 10px;"><strong>التوقيع:</strong></div>
+                                        <div style="margin-top: 10px;">
+                                            <strong>.......................:</strong>
+                                        </div>
                                         <div class="dots-line" style="margin-top: 25px;">............................................................</div>
                                     </div>
                                 </td>
